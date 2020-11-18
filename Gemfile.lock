@@ -61,6 +61,7 @@ GEM
       msgpack (~> 1.0)
     builder (3.2.4)
     byebug (11.1.3)
+    coderay (1.1.3)
     concurrent-ruby (1.1.7)
     crass (1.0.6)
     diff-lcs (1.4.4)
@@ -195,6 +196,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
+  coderay (~> 1.1, >= 1.1.3)
   jbuilder (~> 2.7)
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)
