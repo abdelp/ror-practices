@@ -42,8 +42,7 @@ RSpec.describe 'A cup of coffee' do
       expect(coffee.color).to be(:light)
     end
 
-    it 'is cooler than 200 degrees Fahrenheit' do
-      skip
+    xit 'is cooler than 200 degrees Fahrenheit' do
       expect(coffee.temperature).to be < 200.0
     end
   end
