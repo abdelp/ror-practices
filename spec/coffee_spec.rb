@@ -8,7 +8,7 @@ class Coffee
   end
 
   def price
-    1.00
+    1.00 + ingredients.size * 0.25
   end
 end
 
@@ -19,7 +19,7 @@ RSpec.describe 'A cup of coffee' do
     expect(coffee.price).to eq(1.00)
   end
 
-  context 'with milk' do
+  fcontext 'with milk' do
     before { coffee.add :milk }
 
     it 'costs $1.25' do
