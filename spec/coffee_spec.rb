@@ -43,6 +43,7 @@ RSpec.describe 'A cup of coffee' do
     end
 
     it 'is cooler than 200 degrees Fahrenheit' do
+      skip
       expect(coffee.temperature).to be < 200.0
     end
   end
