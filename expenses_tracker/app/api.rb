@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'json'
 require_relative 'ledger'
+require 'ox'
 
 module ExpenseTracker
   class API < Sinatra::Base
@@ -22,7 +23,22 @@ module ExpenseTracker
     end
 
     get '/expenses/:date' do
-      JSON.generate([])
+      if request.media_type === 'text/xml'
+        doc = Ox::Document.new
+
+        instruct = Ox::Instruct.new(:xml)
+        instruct[:version] = '1.0'
+        instruct[:encoding] = 'UTF-8'
+        instruct[:standalone] = 'yes'
+        doc << instruct
+
+        other_elements = Ox::Raw.new(@ledger.expenses_on(params[:date]))
+        doc << other_elements
+
+        Ox.dump(doc)
+      else
+        JSON.generate(@ledger.expenses_on(params[:date]))
+      end
     end
   end
 end

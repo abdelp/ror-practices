@@ -1,5 +1,6 @@
 require_relative '../../../app/api'
 require 'rack/test'
+require 'ox'
 
 module ExpenseTracker
   RSpec.describe API do
@@ -11,14 +12,15 @@ module ExpenseTracker
 
     let(:ledger) { instance_double('ExpenseTracker::Ledger') }
     let(:parsed_json) { JSON.parse(last_response.body) }
+    let(:parsed_xml) { Ox.dump(last_response.body) }
 
     describe 'POST /expenses' do
       let(:expense) { { 'some' => 'data' }}
 
       before do
         allow(ledger).to receive(:record)
-          .with(expense)
-          .and_return(RecordResult.new(true, 417, nil))
+        .with(expense)
+        .and_return(RecordResult.new(true, 417, nil))
       end
 
       context 'when the expense is successfully recorded' do
@@ -39,8 +41,8 @@ module ExpenseTracker
 
         before do
           allow(ledger).to receive(:record)
-            .with(expense)
-            .and_return(RecordResult.new(false, 417, 'Expense incomplete'))
+          .with(expense)
+          .and_return(RecordResult.new(false, 417, 'Expense incomplete'))
         end
 
         it 'returns an error message' do
@@ -57,17 +59,37 @@ module ExpenseTracker
     end
 
     describe 'GET /expenses/:date' do
-      let(:result) { { 'some' => 'data' } }
-      let(:date) { '2020-11-20' }
+      context 'when expenses exist on the given date' do
+        let(:date) { '2020-11-20' }
+        let(:result) { { 'some' => 'data' } }
+        
+        context 'when Content-Type is application/json' do
+          before do
+            allow(ledger).to receive(:expenses_on)
+              .with(date)
+              .and_return(JSON.generate(result))
+          end
 
-      before do
-        allow(ledger).to receive(:expenses_on)
-          .with(date)
-          .and_return(JSON.generate(result))
+          it 'returns the expense records as JSON' do
+            # header 'Content-Type', 'application/json'
+            
+            get "/expenses/#{date}"
+            expect(parsed_json).to eq(JSON.generate(result))
+          end
+        end
       end
 
-      context 'when expenses exist on the given date' do
-        it 'returns the expense records as JSON' do
+      context 'when there are no expenses on the given date' do
+        let(:result) { [] }
+        let(:date) { '2020-12-03' }
+
+        before do
+          allow(ledger).to receive(:expenses_on)
+            .with(date)
+            .and_return(JSON.generate(result))
+        end
+
+        it 'returns an empty array as JSON' do
           get "/expenses/#{date}"
           expect(parsed_json).to eq(JSON.generate(result))
         end
@@ -76,11 +98,6 @@ module ExpenseTracker
           get "/expenses/#{date}"
           expect(last_response.status).to eq(200)
         end
-      end
-
-      context 'when there are no expenses on the given date' do
-        it 'returns an empty array as JSON'
-        it 'responds with a 200 (OK)'
       end
     end
   end
