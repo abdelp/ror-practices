@@ -45,4 +45,12 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 
   config.filter_gems_from_backtrace 'rack', 'rack-test', 'sequel', 'sinatra'
+
+  config.define_derived_metadata(file_path: /spec\/unit/) do |meta|
+    meta[:fast] = true
+  end
+
+  config.define_derived_metadata(type: :model) do |meta|
+    # ...
+  end
 end

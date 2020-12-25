@@ -6,6 +6,10 @@ module ExpenseTracker
   RSpec.describe 'Expense Tracker API', :db  do
     include Rack::Test::Methods
 
+    before do
+      basic_authorize 'test_user', 'test_password'
+    end
+
     def app
       ExpenseTracker::API.new
     end

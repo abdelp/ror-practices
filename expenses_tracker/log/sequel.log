@@ -1,0 +1,40 @@
+# Logfile created on 2020-12-25 17:08:07 -0300 by logger.rb/66358
+I, [2020-12-25T17:08:07.558344 #4374]  INFO -- : Starting example: records submitted expenses
+I, [2020-12-25T17:08:07.558557 #4374]  INFO -- : (0.000049s) BEGIN
+I, [2020-12-25T17:08:07.559805 #4374]  INFO -- : (0.000200s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Starbucks', 5.75, '2017-06-10')
+I, [2020-12-25T17:08:07.560238 #4374]  INFO -- : (0.000107s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-25T17:08:07.563659 #4374]  INFO -- : (0.000080s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Zoo', 15.25, '2017-06-10')
+I, [2020-12-25T17:08:07.564002 #4374]  INFO -- : (0.000106s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-25T17:08:07.565120 #4374]  INFO -- : (0.000067s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Whole Foods', 95.2, '2017-06-11')
+I, [2020-12-25T17:08:07.565623 #4374]  INFO -- : (0.000100s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-25T17:08:07.567443 #4374]  INFO -- : (0.000677s) SELECT * FROM `expenses` WHERE (`date` = '2017-06-10')
+I, [2020-12-25T17:08:07.572143 #4374]  INFO -- : (0.000184s) ROLLBACK
+I, [2020-12-25T17:08:07.572262 #4374]  INFO -- : Ending example: records submitted expenses 
+I, [2020-12-25T17:08:07.576138 #4374]  INFO -- : Starting example: returns a blank array when there are no matching expenses
+I, [2020-12-25T17:08:07.576324 #4374]  INFO -- : (0.000045s) BEGIN
+I, [2020-12-25T17:08:07.576866 #4374]  INFO -- : (0.000284s) SELECT * FROM `expenses` WHERE (`date` = '2020-12-03')
+I, [2020-12-25T17:08:07.577043 #4374]  INFO -- : (0.000032s) ROLLBACK
+I, [2020-12-25T17:08:07.577198 #4374]  INFO -- : Ending example: returns a blank array when there are no matching expenses 
+I, [2020-12-25T17:08:07.577546 #4374]  INFO -- : Starting example: returns all expenses for the provided date
+I, [2020-12-25T17:08:07.577659 #4374]  INFO -- : (0.000029s) BEGIN
+I, [2020-12-25T17:08:07.578138 #4374]  INFO -- : (0.000167s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Starbucks', 5.75, '2017-06-10')
+I, [2020-12-25T17:08:07.578434 #4374]  INFO -- : (0.000093s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-25T17:08:07.578763 #4374]  INFO -- : (0.000113s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Starbucks', 5.75, '2017-06-10')
+I, [2020-12-25T17:08:07.579119 #4374]  INFO -- : (0.000172s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-25T17:08:07.579321 #4374]  INFO -- : (0.000048s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Starbucks', 5.75, '2017-06-11')
+I, [2020-12-25T17:08:07.579564 #4374]  INFO -- : (0.000073s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-25T17:08:07.580206 #4374]  INFO -- : (0.000229s) SELECT * FROM `expenses` WHERE (`date` = '2017-06-10')
+I, [2020-12-25T17:08:07.580897 #4374]  INFO -- : (0.000295s) ROLLBACK
+I, [2020-12-25T17:08:07.581071 #4374]  INFO -- : Ending example: returns all expenses for the provided date 
+I, [2020-12-25T17:08:07.581889 #4374]  INFO -- : Starting example: successfully saves the expense in the DB
+I, [2020-12-25T17:08:07.582150 #4374]  INFO -- : (0.000060s) BEGIN
+I, [2020-12-25T17:08:07.582994 #4374]  INFO -- : (0.000474s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Starbucks', 5.75, '2017-06-10')
+I, [2020-12-25T17:08:07.583330 #4374]  INFO -- : (0.000106s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-25T17:08:07.587207 #4374]  INFO -- : (0.000196s) SELECT * FROM `expenses`
+I, [2020-12-25T17:08:07.590311 #4374]  INFO -- : (0.000148s) ROLLBACK
+I, [2020-12-25T17:08:07.590415 #4374]  INFO -- : Ending example: successfully saves the expense in the DB 
+I, [2020-12-25T17:08:07.591106 #4374]  INFO -- : Starting example: rejects the expense as invalid
+I, [2020-12-25T17:08:07.591234 #4374]  INFO -- : (0.000032s) BEGIN
+I, [2020-12-25T17:08:07.591830 #4374]  INFO -- : (0.000115s) SELECT count(*) AS 'count' FROM `expenses` LIMIT 1
+I, [2020-12-25T17:08:07.592018 #4374]  INFO -- : (0.000034s) ROLLBACK
+I, [2020-12-25T17:08:07.592102 #4374]  INFO -- : Ending example: rejects the expense as invalid 
