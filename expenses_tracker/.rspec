@@ -1,3 +1,7 @@
 --require spec_helper
 -I ../../rspec-print_failures_eagerly/lib
 --require 'rspec/print_failures_eagerly'
+-f Fivemat
+-f Fuubar
+-f NyanCatMusicFormatter
+--color

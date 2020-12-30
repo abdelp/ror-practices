@@ -155,3 +155,237 @@ I, [2020-12-30T15:24:57.835989 #7978]  INFO -- : (0.000073s) SELECT max(`id`) AS
 I, [2020-12-30T15:24:57.836199 #7978]  INFO -- : (0.000106s) SELECT * FROM `expenses`
 I, [2020-12-30T15:24:57.840026 #7978]  INFO -- : (0.000170s) ROLLBACK
 I, [2020-12-30T15:24:57.840115 #7978]  INFO -- : Ending example: successfully saves the expense in the DB 
+I, [2020-12-30T15:27:06.872529 #8252]  INFO -- : Starting example: records submitted expenses
+I, [2020-12-30T15:27:06.873298 #8252]  INFO -- : (0.000039s) BEGIN
+I, [2020-12-30T15:27:06.906168 #8252]  INFO -- : (0.000216s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Starbucks', 5.75, '2017-06-10')
+I, [2020-12-30T15:27:06.906447 #8252]  INFO -- : (0.000078s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:27:06.917521 #8252]  INFO -- : (0.000062s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Zoo', 15.25, '2017-06-10')
+I, [2020-12-30T15:27:06.917848 #8252]  INFO -- : (0.000102s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:27:06.918584 #8252]  INFO -- : (0.000041s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Whole Foods', 95.2, '2017-06-11')
+I, [2020-12-30T15:27:06.918848 #8252]  INFO -- : (0.000121s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:27:06.921051 #8252]  INFO -- : (0.000464s) SELECT * FROM `expenses` WHERE (`date` = '2017-06-10')
+I, [2020-12-30T15:27:06.924200 #8252]  INFO -- : (0.000137s) ROLLBACK
+I, [2020-12-30T15:27:06.924276 #8252]  INFO -- : Ending example: records submitted expenses 
+I, [2020-12-30T15:27:06.949074 #8252]  INFO -- : Starting example: returns all expenses for the provided date
+I, [2020-12-30T15:27:06.949223 #8252]  INFO -- : (0.000035s) BEGIN
+I, [2020-12-30T15:27:06.949734 #8252]  INFO -- : (0.000175s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Starbucks', 5.75, '2017-06-10')
+I, [2020-12-30T15:27:06.950257 #8252]  INFO -- : (0.000224s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:27:06.950485 #8252]  INFO -- : (0.000037s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Starbucks', 5.75, '2017-06-10')
+I, [2020-12-30T15:27:06.950779 #8252]  INFO -- : (0.000060s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:27:06.951193 #8252]  INFO -- : (0.000125s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Starbucks', 5.75, '2017-06-11')
+I, [2020-12-30T15:27:06.951412 #8252]  INFO -- : (0.000089s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:27:06.951791 #8252]  INFO -- : (0.000261s) SELECT * FROM `expenses` WHERE (`date` = '2017-06-10')
+I, [2020-12-30T15:27:06.952189 #8252]  INFO -- : (0.000108s) ROLLBACK
+I, [2020-12-30T15:27:06.952245 #8252]  INFO -- : Ending example: returns all expenses for the provided date 
+I, [2020-12-30T15:27:06.952614 #8252]  INFO -- : Starting example: returns a blank array when there are no matching expenses
+I, [2020-12-30T15:27:06.952775 #8252]  INFO -- : (0.000053s) BEGIN
+I, [2020-12-30T15:27:06.953070 #8252]  INFO -- : (0.000110s) SELECT * FROM `expenses` WHERE (`date` = '2020-12-03')
+I, [2020-12-30T15:27:06.953174 #8252]  INFO -- : (0.000020s) ROLLBACK
+I, [2020-12-30T15:27:06.953219 #8252]  INFO -- : Ending example: returns a blank array when there are no matching expenses 
+I, [2020-12-30T15:27:06.953736 #8252]  INFO -- : Starting example: successfully saves the expense in the DB
+I, [2020-12-30T15:27:06.953818 #8252]  INFO -- : (0.000019s) BEGIN
+I, [2020-12-30T15:27:06.954207 #8252]  INFO -- : (0.000121s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Starbucks', 5.75, '2017-06-10')
+I, [2020-12-30T15:27:06.954420 #8252]  INFO -- : (0.000069s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:27:06.957335 #8252]  INFO -- : (0.000199s) SELECT * FROM `expenses`
+I, [2020-12-30T15:27:06.959827 #8252]  INFO -- : (0.000126s) ROLLBACK
+I, [2020-12-30T15:27:06.959904 #8252]  INFO -- : Ending example: successfully saves the expense in the DB 
+I, [2020-12-30T15:27:06.960266 #8252]  INFO -- : Starting example: rejects the expense as invalid
+I, [2020-12-30T15:27:06.960352 #8252]  INFO -- : (0.000020s) BEGIN
+I, [2020-12-30T15:27:06.960754 #8252]  INFO -- : (0.000128s) SELECT count(*) AS 'count' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:27:06.960879 #8252]  INFO -- : (0.000022s) ROLLBACK
+I, [2020-12-30T15:27:06.960924 #8252]  INFO -- : Ending example: rejects the expense as invalid 
+I, [2020-12-30T15:27:10.288856 #8290]  INFO -- : Starting example: records submitted expenses
+I, [2020-12-30T15:27:10.288994 #8290]  INFO -- : (0.000032s) BEGIN
+I, [2020-12-30T15:27:10.321242 #8290]  INFO -- : (0.000181s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Starbucks', 5.75, '2017-06-10')
+I, [2020-12-30T15:27:10.321605 #8290]  INFO -- : (0.000077s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:27:10.332041 #8290]  INFO -- : (0.000059s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Zoo', 15.25, '2017-06-10')
+I, [2020-12-30T15:27:10.332348 #8290]  INFO -- : (0.000075s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:27:10.332901 #8290]  INFO -- : (0.000038s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Whole Foods', 95.2, '2017-06-11')
+I, [2020-12-30T15:27:10.333141 #8290]  INFO -- : (0.000058s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:27:10.335306 #8290]  INFO -- : (0.000538s) SELECT * FROM `expenses` WHERE (`date` = '2017-06-10')
+I, [2020-12-30T15:27:10.338710 #8290]  INFO -- : (0.000109s) ROLLBACK
+I, [2020-12-30T15:27:10.338784 #8290]  INFO -- : Ending example: records submitted expenses 
+I, [2020-12-30T15:27:10.365334 #8290]  INFO -- : Starting example: returns a blank array when there are no matching expenses
+I, [2020-12-30T15:27:10.365474 #8290]  INFO -- : (0.000035s) BEGIN
+I, [2020-12-30T15:27:10.365781 #8290]  INFO -- : (0.000115s) SELECT * FROM `expenses` WHERE (`date` = '2020-12-03')
+I, [2020-12-30T15:27:10.365901 #8290]  INFO -- : (0.000021s) ROLLBACK
+I, [2020-12-30T15:27:10.366162 #8290]  INFO -- : Ending example: returns a blank array when there are no matching expenses 
+I, [2020-12-30T15:27:10.366509 #8290]  INFO -- : Starting example: returns all expenses for the provided date
+I, [2020-12-30T15:27:10.366588 #8290]  INFO -- : (0.000020s) BEGIN
+I, [2020-12-30T15:27:10.366861 #8290]  INFO -- : (0.000118s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Starbucks', 5.75, '2017-06-10')
+I, [2020-12-30T15:27:10.367071 #8290]  INFO -- : (0.000065s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:27:10.367309 #8290]  INFO -- : (0.000053s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Starbucks', 5.75, '2017-06-10')
+I, [2020-12-30T15:27:10.367495 #8290]  INFO -- : (0.000055s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:27:10.367630 #8290]  INFO -- : (0.000034s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Starbucks', 5.75, '2017-06-11')
+I, [2020-12-30T15:27:10.367900 #8290]  INFO -- : (0.000104s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:27:10.368271 #8290]  INFO -- : (0.000183s) SELECT * FROM `expenses` WHERE (`date` = '2017-06-10')
+I, [2020-12-30T15:27:10.368525 #8290]  INFO -- : (0.000075s) ROLLBACK
+I, [2020-12-30T15:27:10.368576 #8290]  INFO -- : Ending example: returns all expenses for the provided date 
+I, [2020-12-30T15:27:10.368997 #8290]  INFO -- : Starting example: successfully saves the expense in the DB
+I, [2020-12-30T15:27:10.369073 #8290]  INFO -- : (0.000018s) BEGIN
+I, [2020-12-30T15:27:10.369413 #8290]  INFO -- : (0.000111s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Starbucks', 5.75, '2017-06-10')
+I, [2020-12-30T15:27:10.369599 #8290]  INFO -- : (0.000059s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:27:10.372448 #8290]  INFO -- : (0.000136s) SELECT * FROM `expenses`
+I, [2020-12-30T15:27:10.374838 #8290]  INFO -- : (0.000128s) ROLLBACK
+I, [2020-12-30T15:27:10.374915 #8290]  INFO -- : Ending example: successfully saves the expense in the DB 
+I, [2020-12-30T15:27:10.375334 #8290]  INFO -- : Starting example: rejects the expense as invalid
+I, [2020-12-30T15:27:10.375421 #8290]  INFO -- : (0.000022s) BEGIN
+I, [2020-12-30T15:27:10.375765 #8290]  INFO -- : (0.000081s) SELECT count(*) AS 'count' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:27:10.375865 #8290]  INFO -- : (0.000020s) ROLLBACK
+I, [2020-12-30T15:27:10.375910 #8290]  INFO -- : Ending example: rejects the expense as invalid 
+I, [2020-12-30T15:27:44.691836 #8438]  INFO -- : Starting example: returns a blank array when there are no matching expenses
+I, [2020-12-30T15:27:44.692003 #8438]  INFO -- : (0.000037s) BEGIN
+I, [2020-12-30T15:27:44.692355 #8438]  INFO -- : (0.000119s) SELECT * FROM `expenses` WHERE (`date` = '2020-12-03')
+I, [2020-12-30T15:27:44.693826 #8438]  INFO -- : (0.000034s) ROLLBACK
+I, [2020-12-30T15:27:44.693949 #8438]  INFO -- : Ending example: returns a blank array when there are no matching expenses 
+I, [2020-12-30T15:27:44.694561 #8438]  INFO -- : Starting example: returns all expenses for the provided date
+I, [2020-12-30T15:27:44.694659 #8438]  INFO -- : (0.000025s) BEGIN
+I, [2020-12-30T15:27:44.694988 #8438]  INFO -- : (0.000134s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Starbucks', 5.75, '2017-06-10')
+I, [2020-12-30T15:27:44.695285 #8438]  INFO -- : (0.000079s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:27:44.695492 #8438]  INFO -- : (0.000039s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Starbucks', 5.75, '2017-06-10')
+I, [2020-12-30T15:27:44.695677 #8438]  INFO -- : (0.000055s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:27:44.695812 #8438]  INFO -- : (0.000033s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Starbucks', 5.75, '2017-06-11')
+I, [2020-12-30T15:27:44.695979 #8438]  INFO -- : (0.000051s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:27:44.696548 #8438]  INFO -- : (0.000459s) SELECT * FROM `expenses` WHERE (`date` = '2017-06-10')
+I, [2020-12-30T15:27:44.702371 #8438]  INFO -- : (0.000243s) ROLLBACK
+I, [2020-12-30T15:27:44.702474 #8438]  INFO -- : Ending example: returns all expenses for the provided date 
+I, [2020-12-30T15:27:44.702938 #8438]  INFO -- : Starting example: successfully saves the expense in the DB
+I, [2020-12-30T15:27:44.703029 #8438]  INFO -- : (0.000025s) BEGIN
+I, [2020-12-30T15:27:44.703388 #8438]  INFO -- : (0.000122s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Starbucks', 5.75, '2017-06-10')
+I, [2020-12-30T15:27:44.703618 #8438]  INFO -- : (0.000075s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:27:44.706414 #8438]  INFO -- : (0.000141s) SELECT * FROM `expenses`
+I, [2020-12-30T15:27:44.708713 #8438]  INFO -- : (0.000114s) ROLLBACK
+I, [2020-12-30T15:27:44.708795 #8438]  INFO -- : Ending example: successfully saves the expense in the DB 
+I, [2020-12-30T15:27:44.709297 #8438]  INFO -- : Starting example: rejects the expense as invalid
+I, [2020-12-30T15:27:44.709390 #8438]  INFO -- : (0.000023s) BEGIN
+I, [2020-12-30T15:27:44.709790 #8438]  INFO -- : (0.000087s) SELECT count(*) AS 'count' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:27:44.709897 #8438]  INFO -- : (0.000021s) ROLLBACK
+I, [2020-12-30T15:27:44.709944 #8438]  INFO -- : Ending example: rejects the expense as invalid 
+I, [2020-12-30T15:27:44.780707 #8438]  INFO -- : Starting example: records submitted expenses
+I, [2020-12-30T15:27:44.780853 #8438]  INFO -- : (0.000035s) BEGIN
+I, [2020-12-30T15:27:44.781875 #8438]  INFO -- : (0.000160s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Starbucks', 5.75, '2017-06-10')
+I, [2020-12-30T15:27:44.782414 #8438]  INFO -- : (0.000120s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:27:44.785102 #8438]  INFO -- : (0.000061s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Zoo', 15.25, '2017-06-10')
+I, [2020-12-30T15:27:44.785435 #8438]  INFO -- : (0.000078s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:27:44.786031 #8438]  INFO -- : (0.000040s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Whole Foods', 95.2, '2017-06-11')
+I, [2020-12-30T15:27:44.786377 #8438]  INFO -- : (0.000062s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:27:44.787030 #8438]  INFO -- : (0.000148s) SELECT * FROM `expenses` WHERE (`date` = '2017-06-10')
+I, [2020-12-30T15:27:44.787642 #8438]  INFO -- : (0.000093s) ROLLBACK
+I, [2020-12-30T15:27:44.787708 #8438]  INFO -- : Ending example: records submitted expenses 
+I, [2020-12-30T15:29:41.201724 #8595]  INFO -- : Starting example: records submitted expenses
+I, [2020-12-30T15:29:41.201884 #8595]  INFO -- : (0.000037s) BEGIN
+I, [2020-12-30T15:29:41.264337 #8595]  INFO -- : (0.000180s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Starbucks', 5.75, '2017-06-10')
+I, [2020-12-30T15:29:41.265079 #8595]  INFO -- : (0.000238s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:29:41.277784 #8595]  INFO -- : (0.000064s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Zoo', 15.25, '2017-06-10')
+I, [2020-12-30T15:29:41.278438 #8595]  INFO -- : (0.000291s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:29:41.279306 #8595]  INFO -- : (0.000047s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Whole Foods', 95.2, '2017-06-11')
+I, [2020-12-30T15:29:41.279669 #8595]  INFO -- : (0.000201s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:29:41.282326 #8595]  INFO -- : (0.000513s) SELECT * FROM `expenses` WHERE (`date` = '2017-06-10')
+I, [2020-12-30T15:29:41.285595 #8595]  INFO -- : (0.000106s) ROLLBACK
+I, [2020-12-30T15:29:41.285786 #8595]  INFO -- : Ending example: records submitted expenses 
+I, [2020-12-30T15:29:41.289767 #8595]  INFO -- : Starting example: returns all expenses for the provided date
+I, [2020-12-30T15:29:41.289942 #8595]  INFO -- : (0.000037s) BEGIN
+I, [2020-12-30T15:29:41.290573 #8595]  INFO -- : (0.000222s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Starbucks', 5.75, '2017-06-10')
+I, [2020-12-30T15:29:41.290929 #8595]  INFO -- : (0.000080s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:29:41.291076 #8595]  INFO -- : (0.000034s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Starbucks', 5.75, '2017-06-10')
+I, [2020-12-30T15:29:41.291441 #8595]  INFO -- : (0.000058s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:29:41.291627 #8595]  INFO -- : (0.000036s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Starbucks', 5.75, '2017-06-11')
+I, [2020-12-30T15:29:41.291904 #8595]  INFO -- : (0.000155s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:29:41.292158 #8595]  INFO -- : (0.000132s) SELECT * FROM `expenses` WHERE (`date` = '2017-06-10')
+I, [2020-12-30T15:29:41.292442 #8595]  INFO -- : (0.000090s) ROLLBACK
+I, [2020-12-30T15:29:41.292500 #8595]  INFO -- : Ending example: returns all expenses for the provided date 
+I, [2020-12-30T15:29:41.292975 #8595]  INFO -- : Starting example: returns a blank array when there are no matching expenses
+I, [2020-12-30T15:29:41.293073 #8595]  INFO -- : (0.000022s) BEGIN
+I, [2020-12-30T15:29:41.293369 #8595]  INFO -- : (0.000146s) SELECT * FROM `expenses` WHERE (`date` = '2020-12-03')
+I, [2020-12-30T15:29:41.293486 #8595]  INFO -- : (0.000025s) ROLLBACK
+I, [2020-12-30T15:29:41.293537 #8595]  INFO -- : Ending example: returns a blank array when there are no matching expenses 
+I, [2020-12-30T15:29:41.294023 #8595]  INFO -- : Starting example: successfully saves the expense in the DB
+I, [2020-12-30T15:29:41.294103 #8595]  INFO -- : (0.000018s) BEGIN
+I, [2020-12-30T15:29:41.294361 #8595]  INFO -- : (0.000115s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Starbucks', 5.75, '2017-06-10')
+I, [2020-12-30T15:29:41.294562 #8595]  INFO -- : (0.000063s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:29:41.297911 #8595]  INFO -- : (0.000332s) SELECT * FROM `expenses`
+I, [2020-12-30T15:29:41.300671 #8595]  INFO -- : (0.000169s) ROLLBACK
+I, [2020-12-30T15:29:41.300763 #8595]  INFO -- : Ending example: successfully saves the expense in the DB 
+I, [2020-12-30T15:29:41.301612 #8595]  INFO -- : Starting example: rejects the expense as invalid
+I, [2020-12-30T15:29:41.301721 #8595]  INFO -- : (0.000025s) BEGIN
+I, [2020-12-30T15:29:41.302301 #8595]  INFO -- : (0.000163s) SELECT count(*) AS 'count' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:29:41.302419 #8595]  INFO -- : (0.000023s) ROLLBACK
+I, [2020-12-30T15:29:41.302472 #8595]  INFO -- : Ending example: rejects the expense as invalid 
+I, [2020-12-30T15:30:08.958017 #8649]  INFO -- : Starting example: successfully saves the expense in the DB
+I, [2020-12-30T15:30:08.958185 #8649]  INFO -- : (0.000037s) BEGIN
+I, [2020-12-30T15:30:08.958557 #8649]  INFO -- : (0.000141s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Starbucks', 5.75, '2017-06-10')
+I, [2020-12-30T15:30:08.958889 #8649]  INFO -- : (0.000078s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:30:08.967672 #8649]  INFO -- : (0.000564s) SELECT * FROM `expenses`
+I, [2020-12-30T15:30:08.972685 #8649]  INFO -- : (0.000118s) ROLLBACK
+I, [2020-12-30T15:30:08.972772 #8649]  INFO -- : Ending example: successfully saves the expense in the DB 
+I, [2020-12-30T15:30:08.973504 #8649]  INFO -- : Starting example: rejects the expense as invalid
+I, [2020-12-30T15:30:08.973606 #8649]  INFO -- : (0.000026s) BEGIN
+I, [2020-12-30T15:30:08.975496 #8649]  INFO -- : (0.000111s) SELECT count(*) AS 'count' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:30:08.975640 #8649]  INFO -- : (0.000025s) ROLLBACK
+I, [2020-12-30T15:30:08.975698 #8649]  INFO -- : Ending example: rejects the expense as invalid 
+I, [2020-12-30T15:30:08.976169 #8649]  INFO -- : Starting example: returns all expenses for the provided date
+I, [2020-12-30T15:30:08.976309 #8649]  INFO -- : (0.000071s) BEGIN
+I, [2020-12-30T15:30:08.976614 #8649]  INFO -- : (0.000121s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Starbucks', 5.75, '2017-06-10')
+I, [2020-12-30T15:30:08.976826 #8649]  INFO -- : (0.000067s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:30:08.976967 #8649]  INFO -- : (0.000034s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Starbucks', 5.75, '2017-06-10')
+I, [2020-12-30T15:30:08.977183 #8649]  INFO -- : (0.000057s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:30:08.977432 #8649]  INFO -- : (0.000035s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Starbucks', 5.75, '2017-06-11')
+I, [2020-12-30T15:30:08.977607 #8649]  INFO -- : (0.000052s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:30:08.977941 #8649]  INFO -- : (0.000141s) SELECT * FROM `expenses` WHERE (`date` = '2017-06-10')
+I, [2020-12-30T15:30:08.981541 #8649]  INFO -- : (0.000126s) ROLLBACK
+I, [2020-12-30T15:30:08.981626 #8649]  INFO -- : Ending example: returns all expenses for the provided date 
+I, [2020-12-30T15:30:08.982015 #8649]  INFO -- : Starting example: returns a blank array when there are no matching expenses
+I, [2020-12-30T15:30:08.982161 #8649]  INFO -- : (0.000073s) BEGIN
+I, [2020-12-30T15:30:08.982460 #8649]  INFO -- : (0.000113s) SELECT * FROM `expenses` WHERE (`date` = '2020-12-03')
+I, [2020-12-30T15:30:08.982576 #8649]  INFO -- : (0.000021s) ROLLBACK
+I, [2020-12-30T15:30:08.982626 #8649]  INFO -- : Ending example: returns a blank array when there are no matching expenses 
+I, [2020-12-30T15:30:08.983007 #8649]  INFO -- : Starting example: records submitted expenses
+I, [2020-12-30T15:30:08.983156 #8649]  INFO -- : (0.000060s) BEGIN
+I, [2020-12-30T15:30:09.021453 #8649]  INFO -- : (0.000165s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Starbucks', 5.75, '2017-06-10')
+I, [2020-12-30T15:30:09.021727 #8649]  INFO -- : (0.000087s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:30:09.029882 #8649]  INFO -- : (0.000158s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Zoo', 15.25, '2017-06-10')
+I, [2020-12-30T15:30:09.030415 #8649]  INFO -- : (0.000124s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:30:09.031483 #8649]  INFO -- : (0.000101s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Whole Foods', 95.2, '2017-06-11')
+I, [2020-12-30T15:30:09.031815 #8649]  INFO -- : (0.000083s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:30:09.034651 #8649]  INFO -- : (0.000182s) SELECT * FROM `expenses` WHERE (`date` = '2017-06-10')
+I, [2020-12-30T15:30:09.035467 #8649]  INFO -- : (0.000177s) ROLLBACK
+I, [2020-12-30T15:30:09.035561 #8649]  INFO -- : Ending example: records submitted expenses 
+I, [2020-12-30T15:32:23.639565 #8790]  INFO -- : Starting example: records submitted expenses
+I, [2020-12-30T15:32:23.639861 #8790]  INFO -- : (0.000056s) BEGIN
+I, [2020-12-30T15:32:23.729844 #8790]  INFO -- : (0.000219s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Starbucks', 5.75, '2017-06-10')
+I, [2020-12-30T15:32:23.730147 #8790]  INFO -- : (0.000085s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:32:23.759076 #8790]  INFO -- : (0.000081s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Zoo', 15.25, '2017-06-10')
+I, [2020-12-30T15:32:23.759359 #8790]  INFO -- : (0.000080s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:32:23.759986 #8790]  INFO -- : (0.000045s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Whole Foods', 95.2, '2017-06-11')
+I, [2020-12-30T15:32:23.760195 #8790]  INFO -- : (0.000062s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:32:23.767525 #8790]  INFO -- : (0.000664s) SELECT * FROM `expenses` WHERE (`date` = '2017-06-10')
+I, [2020-12-30T15:32:23.772808 #8790]  INFO -- : (0.000717s) ROLLBACK
+I, [2020-12-30T15:32:23.778044 #8790]  INFO -- : Ending example: records submitted expenses 
+I, [2020-12-30T15:32:23.791009 #8790]  INFO -- : Starting example: returns all expenses for the provided date
+I, [2020-12-30T15:32:23.791181 #8790]  INFO -- : (0.000056s) BEGIN
+I, [2020-12-30T15:32:23.791552 #8790]  INFO -- : (0.000146s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Starbucks', 5.75, '2017-06-10')
+I, [2020-12-30T15:32:23.791784 #8790]  INFO -- : (0.000077s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:32:23.791926 #8790]  INFO -- : (0.000035s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Starbucks', 5.75, '2017-06-10')
+I, [2020-12-30T15:32:23.792189 #8790]  INFO -- : (0.000143s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:32:23.792330 #8790]  INFO -- : (0.000034s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Starbucks', 5.75, '2017-06-11')
+I, [2020-12-30T15:32:23.792502 #8790]  INFO -- : (0.000054s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:32:23.792747 #8790]  INFO -- : (0.000134s) SELECT * FROM `expenses` WHERE (`date` = '2017-06-10')
+I, [2020-12-30T15:32:23.793024 #8790]  INFO -- : (0.000091s) ROLLBACK
+I, [2020-12-30T15:32:23.797810 #8790]  INFO -- : Ending example: returns all expenses for the provided date 
+I, [2020-12-30T15:32:23.801544 #8790]  INFO -- : Starting example: returns a blank array when there are no matching expenses
+I, [2020-12-30T15:32:23.801710 #8790]  INFO -- : (0.000035s) BEGIN
+I, [2020-12-30T15:32:23.802067 #8790]  INFO -- : (0.000117s) SELECT * FROM `expenses` WHERE (`date` = '2020-12-03')
+I, [2020-12-30T15:32:23.802185 #8790]  INFO -- : (0.000022s) ROLLBACK
+I, [2020-12-30T15:32:23.802544 #8790]  INFO -- : Ending example: returns a blank array when there are no matching expenses 
+I, [2020-12-30T15:32:23.810378 #8790]  INFO -- : Starting example: successfully saves the expense in the DB
+I, [2020-12-30T15:32:23.810513 #8790]  INFO -- : (0.000034s) BEGIN
+I, [2020-12-30T15:32:23.810920 #8790]  INFO -- : (0.000137s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Starbucks', 5.75, '2017-06-10')
+I, [2020-12-30T15:32:23.811147 #8790]  INFO -- : (0.000073s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:32:23.814221 #8790]  INFO -- : (0.000214s) SELECT * FROM `expenses`
+I, [2020-12-30T15:32:23.816423 #8790]  INFO -- : (0.000115s) ROLLBACK
+I, [2020-12-30T15:32:23.817087 #8790]  INFO -- : Ending example: successfully saves the expense in the DB 
+I, [2020-12-30T15:32:23.826958 #8790]  INFO -- : Starting example: rejects the expense as invalid
+I, [2020-12-30T15:32:23.827093 #8790]  INFO -- : (0.000033s) BEGIN
+I, [2020-12-30T15:32:23.827629 #8790]  INFO -- : (0.000094s) SELECT count(*) AS 'count' FROM `expenses` LIMIT 1
+I, [2020-12-30T15:32:23.827741 #8790]  INFO -- : (0.000022s) ROLLBACK
+I, [2020-12-30T15:32:23.827808 #8790]  INFO -- : Ending example: rejects the expense as invalid 
