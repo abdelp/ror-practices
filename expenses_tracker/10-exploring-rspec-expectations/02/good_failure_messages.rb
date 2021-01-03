@@ -1,0 +1,1 @@
+expect([13, 2, 3, 99]).to all be_odd
