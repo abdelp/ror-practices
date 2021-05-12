@@ -45,3 +45,5 @@ gem 'capistrano', group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'whenever', '~> 0.9.4', require: false
+gem 'delayed_job_active_record', '4.1.4'
+gem 'delayed_job', '4.1.9'
