@@ -25,8 +25,16 @@ if !File.expand_path(File.dirname(__FILE__)).include?("showmojo/dev")
     every :monday, at: "12:50 pm", roles: [:rake] do
         runner "Delayed::Job.enqueue(Billing::CallCenter::WeeklyEmailJob.new)"
     end
+
+    every "50 12 1,16 * *", roles: [:rake] do
+        runner "Delayed::Job.enqueue(Billing::CallCenter::BiMonthlyEmailJob.new)"
+    end
 else
     every :monday, at: "12:50 pm", roles: [:rake] do
         runner "Delayed::Job.enqueue(Billing::CallCenter::WeeklyEmailJob.new)"
+    end
+
+    every "50 12 1,16 * *", roles: [:rake] do
+        runner "Delayed::Job.enqueue(Billing::CallCenter::BiMonthlyEmailJob.new)"
     end
 end
