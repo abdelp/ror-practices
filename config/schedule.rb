@@ -22,5 +22,11 @@ job_type :runner, "cd :path && script/rails runner -e :environment ':task' :outp
 
 # !!!IMPORTANT: SCHEDULE FOR PRODUCTION
 if !File.expand_path(File.dirname(__FILE__)).include?("showmojo/dev")
-
+    every :monday, at: "12:50 pm", roles: [:rake] do
+        runner "Delayed::Job.enqueue(Billing::CallCenter::WeeklyEmailJob.new)"
+    end
+else
+    every :monday, at: "12:50 pm", roles: [:rake] do
+        runner "Delayed::Job.enqueue(Billing::CallCenter::WeeklyEmailJob.new)"
+    end
 end
