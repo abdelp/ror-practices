@@ -18,3 +18,9 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
+job_type :runner, "cd :path && script/rails runner -e :environment ':task' :output"
+
+# !!!IMPORTANT: SCHEDULE FOR PRODUCTION
+if !File.expand_path(File.dirname(__FILE__)).include?("showmojo/dev")
+
+end
