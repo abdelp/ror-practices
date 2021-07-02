@@ -31,3 +31,7 @@
 
 en:
   hello: "Hello world"
+  activemodel:
+    attributes:
+      person:
+        name: 'Nome'
