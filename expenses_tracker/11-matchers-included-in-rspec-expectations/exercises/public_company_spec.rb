@@ -19,4 +19,15 @@ RSpec.describe PublicCompany do
     # expect(after_market_cap - before_market_cap).to satisfy("be greater than 50000") { |v| v > 50000 }
     expect { company.got_better_than_expected_revenues }.to change { company.market_cap }.by_at_least(50000)
   end
+
+  it 'provides attributes' do
+    obj = {
+      # name: 'Nile',
+      value_per_share: 10,
+      share_count: 10_000,
+      market_cap: 1_000_000
+    }
+  
+    expect(company).to eq(obj)
+  end
 end

@@ -1,0 +1,1 @@
+expect(account).to have_a_balance_of(30)
